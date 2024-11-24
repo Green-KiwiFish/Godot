@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btao71yntjfc8"]
+
+[ext_resource type="PackedScene" uid="uid://dccx57m6faqt2" path="res://levels/moving_platform.tscn" id="1_enmwa"]
+
+[node name="EnemyPlatform" instance=ExtResource("1_enmwa")]
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(0, 983040, 14, 1, 1114112, 14, 2, 1114112, 14, 3, 1114112, 14, 4, 1245184, 14, -65532, 327681, 12, -65536, 327681, 12)

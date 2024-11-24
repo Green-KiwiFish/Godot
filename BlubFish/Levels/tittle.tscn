@@ -1,0 +1,189 @@
+[gd_scene load_steps=12 format=3 uid="uid://j3s8755n8f5a"]
+
+[ext_resource type="Texture2D" uid="uid://3yqelp5jhq2m" path="res://Assets/pixil-frame-0 (7).png" id="1_0o8ey"]
+[ext_resource type="Script" path="res://Levels/tittle.gd" id="1_4g3tl"]
+[ext_resource type="FontFile" uid="uid://bcamq8rm2h11m" path="res://Assets/fonts/8bitOperatorPlus-Regular.ttf" id="2_1tr7n"]
+[ext_resource type="FontFile" uid="uid://dfaqfvtg68gee" path="res://Assets/fonts/8bitOperatorPlusSC-Bold.ttf" id="3_a6udh"]
+[ext_resource type="AudioStream" uid="uid://dx208yqyleop1" path="res://Assets/Sound/mixkit-possitive-indian-flute-2312.wav" id="5_pbbcb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3kp82"]
+font = ExtResource("2_1tr7n")
+font_size = 64
+font_color = Color(0.371923, 0.772712, 0.651692, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_56dt5"]
+font = ExtResource("3_a6udh")
+font_size = 48
+font_color = Color(0.133333, 0.694118, 0.298039, 1)
+
+[sub_resource type="Animation" id="Animation_68o6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.96888]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-850, 22)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Space:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7okj4"]
+resource_name = "Rotate Space"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.436332, 0.0, 0.436332, 0.0, -0.174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.436332, 0.0, 0.261799, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v24p3"]
+resource_name = "TITTLE"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-850, 22), Vector2(-16, 342), Vector2(450, 279)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-3.96888, -2.20435, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Space:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.439823, 0.0, 0.436332, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u157y"]
+_data = {
+"RESET": SubResource("Animation_68o6y"),
+"Rotate Space": SubResource("Animation_7okj4"),
+"TITTLE": SubResource("Animation_v24p3")
+}
+
+[node name="tittle" type="Node"]
+script = ExtResource("1_4g3tl")
+
+[node name="Container" type="Container" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Container"]
+position = Vector2(0, -68)
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/StaticBody2D"]
+position = Vector2(649, 428)
+scale = Vector2(1.298, 0.832)
+texture = ExtResource("1_0o8ey")
+
+[node name="title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = 22.0
+offset_right = -521.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.96888
+pivot_offset = Vector2(150, 50)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Blub Fish!"
+label_settings = SubResource("LabelSettings_3kp82")
+
+[node name="Space" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 550.0
+offset_right = 916.0
+offset_bottom = 618.0
+pivot_offset = Vector2(300, 25)
+text = "Press Space to Play!"
+label_settings = SubResource("LabelSettings_56dt5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u157y")
+}
+autoplay = "TITTLE"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pbbcb")
+autoplay = true
+attenuation = 2.0

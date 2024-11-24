@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dppif275tboo8"]
+
+[ext_resource type="PackedScene" uid="uid://ojw7ypr53e8e" path="res://Levels/level_base.tscn" id="1_rolci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6vo7"]
+size = Vector2(28, 87.5)
+
+[node name="Home" instance=ExtResource("1_rolci")]
+
+[node name="Music" parent="." index="3"]
+pitch_scale = 1.0
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
+position = Vector2(870, 920)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(77, -0.25)
+shape = SubResource("RectangleShape2D_h6vo7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

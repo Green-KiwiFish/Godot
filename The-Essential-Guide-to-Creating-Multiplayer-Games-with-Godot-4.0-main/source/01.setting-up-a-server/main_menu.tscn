@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://djev51ode3gum"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_bl26t"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bl26t")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.723
+anchor_top = 3.399
+anchor_right = 13.723
+anchor_bottom = 3.399
+offset_left = -33.92
+offset_top = 169.04
+offset_right = 40.08
+offset_bottom = 192.04
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are You..."
+
+[node name="ClientButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 436.0
+offset_right = 448.0
+offset_bottom = 467.0
+text = "I'm a Client"
+
+[node name="ServerButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 452.0
+offset_right = 822.0
+offset_bottom = 483.0
+text = "I'm a Server"
+
+[connection signal="pressed" from="ClientButton" to="." method="_on_client_button_pressed"]
+[connection signal="pressed" from="ServerButton" to="." method="_on_server_button_pressed"]

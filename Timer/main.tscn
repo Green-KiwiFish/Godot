@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwwwmum28akg2"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_bmkop"]
+[ext_resource type="Texture2D" uid="uid://bq4mguiwskvn4" path="res://pixil-frame-0.png" id="2_2smj3"]
+[ext_resource type="AudioStream" uid="uid://dlt33rhmunr6p" path="res://mixkit-alarm-digital-clock-beep-989.wav" id="3_dc7e0"]
+[ext_resource type="Texture2D" uid="uid://bdb6kwe6p2cbe" path="res://pixil-frame-0 (2).png" id="4_3lr4c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6p1k6"]
+font_size = 64
+
+[node name="Main" type="Node"]
+script = ExtResource("1_bmkop")
+
+[node name="BackRound" type="Sprite2D" parent="."]
+position = Vector2(574, 331)
+scale = Vector2(36.375, 20.6875)
+texture = ExtResource("2_2smj3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -153.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Pause" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+toggle_mode = true
+text = "Pause"
+
+[node name="Reset" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 436.0
+offset_top = 112.0
+offset_right = 691.0
+offset_bottom = 200.0
+text = "M: 0 S: 0"
+label_settings = SubResource("LabelSettings_6p1k6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="minus" type="Button" parent="."]
+offset_left = 450.0
+offset_top = 600.0
+offset_right = 520.0
+offset_bottom = 636.0
+size_flags_vertical = 8
+text = "-"
+
+[node name="plus" type="Button" parent="."]
+offset_left = 625.0
+offset_top = 600.0
+offset_right = 695.0
+offset_bottom = 636.0
+size_flags_vertical = 8
+text = "+"
+
+[node name="Beep" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(404, 283)
+stream = ExtResource("3_dc7e0")
+volume_db = 20.0
+
+[node name="Minutes" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = -0.026
+anchor_top = -0.199
+anchor_right = -0.026
+anchor_bottom = -0.199
+offset_left = 648.952
+offset_top = 658.952
+offset_right = 719.952
+offset_bottom = 698.952
+pivot_offset = Vector2(70, 40)
+text = "Minutes"
+
+[node name="Seconds" type="Button" parent="."]
+offset_left = 453.0
+offset_top = 530.0
+offset_right = 525.0
+offset_bottom = 570.0
+size_flags_horizontal = 10
+text = "Seconds
+"
+
+[node name="Hover" type="Sprite2D" parent="."]
+position = Vector2(202, -74)
+scale = Vector2(0.1125, 0.075)
+texture = ExtResource("4_3lr4c")
+
+[connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="toggled" from="HBoxContainer/Pause" to="." method="_on_pause_toggled"]
+[connection signal="pressed" from="HBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="minus" to="." method="_on_minus_pressed"]
+[connection signal="pressed" from="plus" to="." method="_on_plus_pressed"]
+[connection signal="pressed" from="Minutes" to="." method="_on_minutes_pressed"]
+[connection signal="pressed" from="Seconds" to="." method="_on_seconds_pressed"]

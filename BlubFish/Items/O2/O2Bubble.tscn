@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbc2phvdlilth"]
+
+[ext_resource type="Script" path="res://Items/O2/O2Bubble.gd" id="1_umakb"]
+[ext_resource type="Texture2D" uid="uid://b5kv1vbu5ncc0" path="res://Assets/Bubble.png" id="2_arlkp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2hw0"]
+radius = 9.0
+
+[node name="O2Bubble" type="CharacterBody2D" groups=["O2Bubble"]]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_umakb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_arlkp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w2hw0")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://drbwb6c5q30ri"]
+
+[ext_resource type="PackedScene" uid="uid://bpc538avlm8sn" path="res://Levels/chunks/chunk.tscn" id="1_0moyn"]
+[ext_resource type="PackedScene" uid="uid://n1kal2qpwp1h" path="res://Enemies/MiniCrab.tscn" id="2_4p1dy"]
+
+[node name="chunk5" instance=ExtResource("1_0moyn")]
+layer_0/tile_data = PackedInt32Array(131073, 1, 1, 131074, 1, 1, 131075, 65537, 0, 131076, 65537, 0, 131077, 65537, 0, 131078, 1, 1, 65543, 131073, 0, 65542, 1, 0, 131079, 1, 1, 196615, 1, 1, 196614, 1, 1, 196613, 1, 1, 196612, 1, 1, 196610, 1, 1, 196611, 1, 1, 262151, 131073, 1, 262150, 65537, 1, 262149, 65537, 1, 262148, 65537, 1, 262147, 65537, 1, 262146, 196609, 1, 196609, 196609, 1, 65537, 1, 0, 65538, 131073, 0)
+
+[node name="Coral" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(131072, 2, 1)
+
+[node name="MiniCrab" parent="." index="1" instance=ExtResource("2_4p1dy")]
+position = Vector2(50, 0)

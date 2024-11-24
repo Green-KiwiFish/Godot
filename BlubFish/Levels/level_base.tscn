@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://ojw7ypr53e8e"]
+
+[ext_resource type="Script" path="res://Levels/level_base.gd" id="1_jslfx"]
+[ext_resource type="PackedScene" uid="uid://dact3ofyxm8xx" path="res://Player/player.tscn" id="2_8vyge"]
+[ext_resource type="Texture2D" uid="uid://3yqelp5jhq2m" path="res://Assets/pixil-frame-0 (7).png" id="2_a0tq0"]
+[ext_resource type="PackedScene" uid="uid://dyeygw7tgy4o" path="res://Items/Decor/fish_decor.tscn" id="2_b6mvc"]
+[ext_resource type="PackedScene" uid="uid://cbc2phvdlilth" path="res://Items/O2/O2Bubble.tscn" id="2_c2ask"]
+[ext_resource type="AudioStream" uid="uid://bqhkv6fgcbvf4" path="res://Assets/Sound/mixkit-mysterious-long-swell-2671.wav" id="8_efrif"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_81poj"]
+
+[node name="LevelBase" type="Node"]
+script = ExtResource("1_jslfx")
+fish_decor = ExtResource("2_b6mvc")
+O2Bubble = ExtResource("2_c2ask")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 500)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource("CanvasItemMaterial_81poj")
+texture = ExtResource("2_a0tq0")
+
+[node name="Player" parent="." instance=ExtResource("2_8vyge")]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_efrif")
+pitch_scale = 0.5
+autoplay = true
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
